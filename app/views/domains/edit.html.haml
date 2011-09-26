@@ -1,0 +1,5 @@
+%h1 Edit #{@domain.name}
+
+= link_to "Delete", @domain, confirm: 'Are you sure?', method: :delete
+
+= render 'form'

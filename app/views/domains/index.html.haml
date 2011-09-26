@@ -1,0 +1,10 @@
+%h1 Domains
+
+= link_to "Add domain", new_domain_path
+
+- unless @domains.nil?
+  %ul
+    - @domains.each do |domain|
+      %li= domain.name
+- else
+  %p Asante Sana! Squash banana! We we nuga! Mi mi apana!

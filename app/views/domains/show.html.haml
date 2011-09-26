@@ -1,0 +1,13 @@
+%h1= @domain.name
+
+= link_to @domain.url, @domain.url
+%br
+= link_to "Edit this domain", edit_domain_path(@domain)
+
+%h2 Keywords
+= link_to "New keyword", new_domain_keyword_path(@domain)
+
+- unless @domain.keywords.empty?
+  %ul
+    - @domain.keywords.each do |keyword|
+      %li= keyword.term

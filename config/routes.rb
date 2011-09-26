@@ -1,4 +1,11 @@
 Rankasaurus::Application.routes.draw do
+
+  root :to => 'domains#index'
+
+  resources :domains do
+    resources :keywords
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
