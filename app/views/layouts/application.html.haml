@@ -18,10 +18,18 @@
     .container
 
       - if flash[:notice]
-        .alert-message.success.fade-in(data-alert="alert")
+        .alert-message.success.fade.in(data-alert="alert")
+          %a.close(href="#")x
           = notice
       - if flash[:alert]
-        .alert-message.error.fade-in(data-alert="alert")
+        .alert-message.error.fade.in(data-alert="alert")
+          %a.close(href="#")x
           = alert
 
       = yield
+    
+    %footer.footer
+      .container
+        %p.pull-right
+          %a.back-to-top(href="#") Back to top
+      

@@ -1,7 +1,7 @@
-%h1 Domains
+.page-header
+  %h1 Domains
 
-.well
-  = link_to "Add domain", new_domain_path, :class => "btn primary"
+= link_to "Add domain", new_domain_path, :class => "btn primary"
 
 - unless @domains.nil?
   .domain

@@ -1,16 +1,13 @@
-.row
-  .span16
-    %h1= @domain.name
-    = link_to @domain.url, @domain.url
-
-.row
-  .span16
-    %p
-      = link_to "Back to Domains", domains_path, :class => "btn secondary"
-      = link_to "Edit this domain", edit_domain_path(@domain), :class => "btn secondary"
-
+.page-header
+  %h1
+    = @domain.name
+    (<a href="#{@domain.url}">#{@domain.url}</a>)
+%p
+  = link_to "Back to Domains", domains_path, :class => "btn"
+  = link_to "Edit this domain", edit_domain_path(@domain), :class => "btn"
 %h2 Keywords
-= link_to "New keyword", new_domain_keyword_path(@domain)
+%p
+  = link_to "New keyword", new_domain_keyword_path(@domain), :class => "btn primary"
 
 - unless @domain.keywords.empty?
   %table.zebra-striped
