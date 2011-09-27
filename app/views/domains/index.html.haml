@@ -1,10 +1,12 @@
 %h1 Domains
 
-= link_to "Add domain", new_domain_path
+.well
+  = link_to "Add domain", new_domain_path, :class => "btn primary"
 
 - unless @domains.nil?
-  %ul
+  .domain
     - @domains.each do |domain|
-      %li= domain.name
+      .well
+        %h3= link_to domain.name, domain_path(domain)
 - else
   %p Asante Sana! Squash banana! We we nuga! Mi mi apana!

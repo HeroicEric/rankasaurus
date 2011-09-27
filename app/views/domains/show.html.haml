@@ -1,16 +1,27 @@
-%h1= @domain.name
+.row
+  .span16
+    %h1= @domain.name
+    = link_to @domain.url, @domain.url
 
-= link_to @domain.url, @domain.url
-%br
-%br
-= link_to "Edit this domain", edit_domain_path(@domain)
+.row
+  .span16
+    %p
+      = link_to "Back to Domains", domains_path, :class => "btn secondary"
+      = link_to "Edit this domain", edit_domain_path(@domain), :class => "btn secondary"
 
 %h2 Keywords
 = link_to "New keyword", new_domain_keyword_path(@domain)
 
 - unless @domain.keywords.empty?
-  %ul
-    - @domain.keywords.each do |keyword|
-      %li
-        = keyword.term 
-        = link_to "Delete", domain_keyword_path(@domain, keyword), confirm: 'Are you sure?', method: :delete, :id => "delete_keyword_#{keyword.id}"
+  %table.zebra-striped
+    %thead
+      %tr
+        %th Term
+        %th Rank
+        %th Actions
+    %tbody
+      - @domain.keywords.each do |keyword|
+        %tr
+          %td= keyword.term
+          %td= keyword.rank
+          %td= link_to "Delete", domain_keyword_path(@domain, keyword), confirm: 'Are you sure?', method: :delete, :id => "delete_keyword_#{keyword.id}"

@@ -7,8 +7,21 @@
     = csrf_meta_tags
   %body
     
+    .topbar
+      .fill
+        .container
+          %a.brand(href="#{root_path}") Rankasaurus
+          %ul.nav
+            %li= link_to "Home", root_path
+            %li= link_to "Domains", domains_path
+
     .container
-      %p.notice= notice
-      %p.alert= alert
+
+      - if flash[:notice]
+        .alert-message.success.fade-in(data-alert="alert")
+          = notice
+      - if flash[:alert]
+        .alert-message.error.fade-in(data-alert="alert")
+          = alert
 
       = yield
